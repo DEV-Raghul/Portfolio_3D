@@ -218,7 +218,7 @@ gltfLoader.load(
     loadIntroText();
 
     // add event listeners
-    // logoListener();
+    logoListener();
     aboutMenuListener();
     projectsMenuListener();
     init3DWorldClickListeners();
@@ -556,12 +556,12 @@ function resetCamera() {
   }
 }
 
-// function logoListener() {
-//   document.getElementById('logo').addEventListener('click', function (e) {
-//     e.preventDefault();
-//     resetCamera();
-//   });
-// }
+function logoListener() {
+  document.getElementById('logo').addEventListener('click', function (e) {
+    e.preventDefault();
+    resetCamera();
+  });
+}
 
 function cameraToAbout() {
   if (!bookCover) return;
