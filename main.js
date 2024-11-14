@@ -28,20 +28,20 @@ let clipNames = [
 ];
 let projects = [
   {
-    image: 'textures/project-spaze.webp',
-    url: 'https://www.spaze.social/',
+    image: 'textures/project-Alhamsa.png',
+    url: 'https://alhamsafm.com/',
   },
+  // {
+  //   image: 'textures/project-KNVSM.png',
+  //   url: 'https://kaagency.knglobalinfotech.com/',
+  // },
+  // {
+  //   image: 'textures/project-wholesale.jpg',
+  //   url: 'https://wholesale.com.np/',
+  // },
   {
-    image: 'textures/project-myteachers.jpg',
-    url: 'https://myteachers.com.au/',
-  },
-  {
-    image: 'textures/project-wholesale.jpg',
-    url: 'https://wholesale.com.np/',
-  },
-  {
-    image: 'textures/project-pelotero.jpg',
-    url: 'https://www.peloterosenlaweb.com/',
+    image: 'textures/project-KNGIT.png',
+    url: 'https://knglobalinfotech.in/',
   },
 ];
 let aboutCameraPos = {
@@ -187,8 +187,9 @@ gltfLoader.load(
 
         // adding texture to book
         const bookTexture = new THREE.TextureLoader().load(
-          'textures/book-inner.jpg'
+          'textures/book-inner.jpg' // Replace with the external image URL
         );
+        
         bookTexture.flipY = false;
         child.material = new THREE.MeshStandardMaterial({
           color: 0xffffff,
@@ -244,10 +245,10 @@ roomLight.shadow.bias = -0.002;
 scene.add(roomLight);
 // add light for pc fans
 const fanLight1 = new THREE.PointLight(0xff0000, 30, 0.2);
-const fanLight2 = new THREE.PointLight(0x00ff00, 30, 0.12);
-const fanLight3 = new THREE.PointLight(0x00ff00, 30, 0.2);
-const fanLight4 = new THREE.PointLight(0x00ff00, 30, 0.2);
-const fanLight5 = new THREE.PointLight(0x00ff00, 30, 0.05);
+const fanLight2 = new THREE.PointLight(0xff00cc, 30, 0.12);
+const fanLight3 = new THREE.PointLight(0xff00cc, 30, 0.2);
+const fanLight4 = new THREE.PointLight(0xff00cc, 30, 0.2);
+const fanLight5 = new THREE.PointLight(0xff00cc, 30, 0.05);
 fanLight1.position.set(0, 0.29, -0.29);
 fanLight2.position.set(-0.15, 0.29, -0.29);
 fanLight3.position.set(0.21, 0.29, -0.29);
@@ -271,33 +272,6 @@ scene.add(pointLight1);
 scene.add(pointLight2);
 scene.add(pointLight3);
 scene.add(pointLight4);
-
-// SETUP HELPERS
-// const axesHelper = new THREE.AxesHelper(5);
-// scene.add(axesHelper);
-// const gridHelper = new THREE.GridHelper(30, 30);
-// scene.add(gridHelper);
-// const shadowCameraHelper = new THREE.CameraHelper(roomLight.shadow.camera);
-// scene.add(shadowCameraHelper);
-// const pointLightHelper = new THREE.PointLightHelper(fanLight3, 0.03);
-// scene.add(pointLightHelper);
-
-// ADD GUI
-// const gui = new dat.GUI();
-// const options = {
-//   lightX: 0,
-//   lightY: 0.08,
-//   lightZ: 0,
-// };
-// gui.add(options, 'lightX').onChange((e) => {
-//   mobileLight.position.setX(e);
-// });
-// gui.add(options, 'lightY').onChange((e) => {
-//   mobileLight.position.setY(e);
-// });
-// gui.add(options, 'lightZ').onChange((e) => {
-//   mobileLight.position.setZ(e);
-// });
 
 const clock = new THREE.Clock();
 function animate() {
@@ -334,7 +308,7 @@ function loadIntroText() {
       new THREE.MeshPhongMaterial({ color: 0xffffff }),
     ];
     const subTitleGeo = new TextGeometry(
-      'UI/UX Designer / Web Designer / Developer',
+      'UI/UX Designer / Developer',
       {
         font: font,
         size: 0.018,
@@ -726,11 +700,6 @@ function initResponsive(roomScene) {
       y: 0,
       z: 1.57,
     };
-
-    // rect light
-    // rectLight.width = 0.406;
-    // rectLight.height = 0.3;
-    // rectLight.position.z = -0.34;
 
     // project
     projectsCameraPos = {
